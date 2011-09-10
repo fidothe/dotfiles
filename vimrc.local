@@ -1,0 +1,3 @@
+" Use .as for ActionScript files, not Atlas files.
+au BufNewFile,BufRead *.as set filetype=actionscript
+
