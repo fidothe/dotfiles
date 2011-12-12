@@ -1,5 +1,7 @@
+export LC_CTYPE=en_GB.UTF-8
 export GIT_EDITOR='mvim -f --nomru -c "au VimLeave * !open -a Terminal"'
 export EDITOR=mvim
+export BUNDLER_EDITOR=mvim
 export PATH="/usr/local/share/python:/usr/local/bin:${PATH}"
 
 # For AWS command line tools
