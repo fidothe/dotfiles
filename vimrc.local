@@ -1,3 +1,8 @@
 " Use .as for ActionScript files, not Atlas files.
 au BufNewFile,BufRead *.as set filetype=actionscript
 
+" NERDTree
+" We don't want to see .rvrmc, .git, .svn or .DS_Store files even with
+" show-hidden switched on...
+let NERDTreeIgnore+=['^\.git', '^\.svn', '^\.DS_Store', '^\.rvmrc']
+
