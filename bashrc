@@ -28,6 +28,9 @@ if [[ -d "$HOME/.virtualenvs" && -f $VENV_WRAPPER_SCRIPT ]]; then
   source $VENV_WRAPPER_SCRIPT
 fi
 
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+  . `brew --prefix`/etc/bash_completion
+fi
 
 [[ -s "/Users/matt/.rvm/scripts/rvm" ]] && source "/Users/matt/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
