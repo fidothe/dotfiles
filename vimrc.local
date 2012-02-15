@@ -6,6 +6,19 @@ au BufNewFile,BufRead *.as set filetype=actionscript
 " show-hidden switched on...
 let NERDTreeIgnore+=['^\.git$', '^\.svn', '^\.DS_Store', '^\.rvmrc']
 
+set winwidth=84
+" make the split with focus big...
+" We have to have a winheight bigger than we want to set winminheight. But if
+" we set winheight to be huge before winminheight, the winminheight set will
+" fail.
+set winheight=5
+set winminheight=5
+set winheight=999
+
+" speed up switching between last two windows
+nnoremap <leader><leader> <c-^>
+
+" Rails stuff (from @garybernhardt)
 function! RunTests(filename)
     " Write the file and run tests for the given filename
     :w
@@ -47,11 +60,25 @@ map <leader>T :call RunNearestTest()<cr>
 " Run all test files
 map <leader>a :call RunTests('spec')<cr>
 
-" make the split with focus big...
-" We have to have a winheight bigger than we want to set winminheight. But if
-" we set winheight to be huge before winminheight, the winminheight set will
-" fail.
-set winwidth=84
-set winheight=5
-set winminheight=5
-set winheight=999
+" Routes & Gemfile
+map <leader>gr :topleft :split config/routes.rb<cr>
+map <leader>gg :topleft 100 :split Gemfile<cr>
+
+function! ShowRoutes()
+  " Requires 'scratch' plugin
+  :topleft 100 :split __Routes__
+  " Make sure Vim doesn't write __Routes__ as a file
+  :set buftype=nofile
+  " Delete everything
+  :normal 1GdG
+  " Put routes output in buffer
+  :0r! rake -s routes
+  " Size window to number of lines (1 plus rake output length)
+  :exec ":normal " . line("$") . "_ "
+  " Move cursor to bottom
+  :normal 1GG
+  " Delete empty trailing line
+  :normal dd
+endfunction
+map <leader>gR :call ShowRoutes()<cr>
+
