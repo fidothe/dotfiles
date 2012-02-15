@@ -3,6 +3,7 @@ export GIT_EDITOR='mvim -f --nomru -c "au VimLeave * !open -a Terminal"'
 export EDITOR=mvim
 export BUNDLER_EDITOR=mvim
 export PATH="/usr/local/share/python:/usr/local/bin:${PATH}"
+export NODE_PATH="/usr/local/lib/node_modules:${NODE_PATH}"
 
 # For AWS command line tools
 if [[ -d "$HOME/.ec2" ]]; then
