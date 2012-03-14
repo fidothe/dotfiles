@@ -1,12 +1,55 @@
+call pathogen#infect()
+" line numbers
+set number
+set ruler
+" syntax highlighting
+syntax on
+filetype plugin indent on
+
+" Filetypes
 " Use .as for ActionScript files, not Atlas files.
 au BufNewFile,BufRead *.as set filetype=actionscript
 
-" NERDTree
-" We don't want to see .rvrmc, .git, .svn or .DS_Store files even with
-" show-hidden switched on...
-let NERDTreeIgnore+=['^\.git$', '^\.svn', '^\.DS_Store', '^\.rvmrc']
+" Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
+au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
 
-set winwidth=84
+" md, markdown, and mk are markdown and define buffer-local preview
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
+
+" add json syntax highlighting
+au BufNewFile,BufRead *.json set ft=javascript
+
+" Directories for swp files
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
+
+" Tab completion
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
+
+" make searches case-sensitive only if they contain upper-case characters
+set ignorecase smartcase
+" highlight current line
+set cursorline
+set cmdheight=2
+set switchbuf=useopen
+set numberwidth=5
+set showtabline=2
+set winwidth=79
+set shell=bash
+" Prevent Vim from clobbering the scrollback buffer. See
+" http://www.shallowsky.com/linux/noaltscreen.html
+set t_ti= t_te=
+" keep more context when scrolling off the end of a buffer
+set scrolloff=3
+
+" Tabses and such
+set tabstop=2                     " a tab is two spaces
+set shiftwidth=2                  " an autoindent (with <<) is two spaces
+set expandtab                     " use spaces, not tabs
+set list                          " Show invisible characters
+set listchars=tab:▸\ ,trail:·
+
 " make the split with focus big...
 " We have to have a winheight bigger than we want to set winminheight. But if
 " we set winheight to be huge before winminheight, the winminheight set will
@@ -14,6 +57,12 @@ set winwidth=84
 set winheight=5
 set winminheight=5
 set winheight=999
+
+" Solarized colour scheme
+let g:solarized_visibility="low"
+syntax enable
+set background=light
+colorscheme solarized
 
 " speed up switching between last two windows
 nnoremap <leader><leader> <c-^>
@@ -23,7 +72,7 @@ function! RunTests(filename)
     " Write the file and run tests for the given filename
     :w
     :silent !echo;echo;echo;echo;echo
-    exec ":!bundle exec rspec " . a:filename
+    exec ":!bundle exec rspec --tag ~wip " . a:filename
 endfunction
 
 function! SetTestFile()
@@ -81,4 +130,3 @@ function! ShowRoutes()
   :normal dd
 endfunction
 map <leader>gR :call ShowRoutes()<cr>
-

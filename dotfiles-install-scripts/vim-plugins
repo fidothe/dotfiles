@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+HOME_DIR = ARGV[0]
+
+def plugin(*args, &block)
+  url = args.pop
+  name = args.first || File.basename(url, '.git')
+  vimdir = File.expand_path('.vim', HOME_DIR)
+  pathogen_bundle_dir = File.expand_path('bundle', vimdir)
+  plugin_dir = File.expand_path(name, pathogen_bundle_dir)
+
+  `mkdir -p #{pathogen_bundle_dir}`
+  `rm -rf "#{plugin_dir}" && git clone "#{url}" "#{plugin_dir}"`
+  block.call(plugin_dir) if block_given?
+end
+
+plugin 'git://github.com/tpope/vim-rails.git'
+plugin 'git://github.com/altercation/vim-colors-solarized.git'
+plugin 'git://github.com/tpope/vim-commentary.git'
+plugin 'Command-T', 'git://git.wincent.com/command-t.git' do |dir|
+  `cd "#{dir}" && bundle install && rake make`
+end
+
+plugin 'actionscript.vim', 'git://github.com/vim-scripts/actionscript.vim--Leider.git'

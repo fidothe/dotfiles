@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+HOME_DIR = ARGV[0]
+DOT_VIM_DIR = File.expand_path('.vim', HOME_DIR)
+
+['backup', 'bundle'].each do |dir|
+  puts `cd "#{HOME_DIR}" && mkdir -p "#{File.expand_path(dir, DOT_VIM_DIR)}"`
+end

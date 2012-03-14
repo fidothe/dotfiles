@@ -1,9 +1,10 @@
 #!/usr/bin/env ruby
 dotfiles_dir = File.expand_path(File.dirname(__FILE__))
 initial_root = ENV['HOME']
+install_scripts_dir = File.expand_path('dotfiles-install-scripts', dotfiles_dir)
 
 def process_dir(dir, root, path_prefix = ".")
-  Dir["#{dir}/*"].reject {|path| path =~ /install\.rb$/}.each do |dotfile_path|
+  Dir["#{dir}/*"].reject {|path| path =~ /dotfiles-install/}.each do |dotfile_path|
     if File.file?(dotfile_path)
       puts `ln -svf #{dotfile_path} #{root}/#{path_prefix}#{File.basename(dotfile_path)}`
     elsif File.directory?(dotfile_path)
@@ -14,5 +15,12 @@ def process_dir(dir, root, path_prefix = ".")
   end
 end
 
-process_dir(dotfiles_dir, initial_root)
+def run_scripts(dir, root)
+  Dir["#{dir}/*"].select { |path| File.executable?(path) }.each do |script|
+    puts "running #{File.basename(script)}"
+    `"#{script}" "#{root}"`
+  end
+end
 
+process_dir(dotfiles_dir, initial_root)
+run_scripts(install_scripts_dir, initial_root)
