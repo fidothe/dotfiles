@@ -4,24 +4,55 @@ set number
 set ruler
 " syntax highlighting
 syntax on
+" Also load indent files, to automatically do language-dependent indenting.
 filetype plugin indent on
 
-" Filetypes
-" Use .as for ActionScript files, not Atlas files.
-au BufNewFile,BufRead *.as set filetype=actionscript
+" Tabses and such
+set tabstop=2                     " a tab is two spaces
+set shiftwidth=2                  " an autoindent (with <<) is two spaces
+set expandtab                     " use spaces, not tabs
+set list                          " Show invisible characters
+set listchars=tab:▸\ ,trail:·
 
-" Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
-au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
+" Autocommands
+augroup mattCommands
+  " Clear all autocmds in the group
+  autocmd!
+  " Jump to last cursor position unless it's invalid or in an event handler
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
 
-" md, markdown, and mk are markdown and define buffer-local preview
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
+  " Filetypes
+  " Use .as for ActionScript files, not Atlas files.
+  au BufNewFile,BufRead *.as set filetype=actionscript
 
-" add json syntax highlighting
-au BufNewFile,BufRead *.json set ft=javascript
+  " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
+  au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
+
+  " md, markdown, and mk are markdown and define buffer-local preview
+  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
+
+  " add json syntax highlighting
+  au BufNewFile,BufRead *.json set ft=javascript
+  
+  "for ruby, autoindent with two spaces, always expand tabs
+  autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set ai sw=2 sts=2 et
+  autocmd FileType python set sw=4 sts=4 et
+
+  autocmd! BufRead,BufNewFile *.sass setfiletype sass 
+augroup END
 
 " Directories for swp files
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
+" Store temporary files in a central spot
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+" display incomplete commands
+set showcmd
 
 " Tab completion
 set wildmode=list:longest,list:full
@@ -43,13 +74,6 @@ set t_ti= t_te=
 " keep more context when scrolling off the end of a buffer
 set scrolloff=3
 
-" Tabses and such
-set tabstop=2                     " a tab is two spaces
-set shiftwidth=2                  " an autoindent (with <<) is two spaces
-set expandtab                     " use spaces, not tabs
-set list                          " Show invisible characters
-set listchars=tab:▸\ ,trail:·
-
 " make the split with focus big...
 " We have to have a winheight bigger than we want to set winminheight. But if
 " we set winheight to be huge before winminheight, the winminheight set will
@@ -59,6 +83,7 @@ set winminheight=5
 set winheight=999
 
 " Solarized colour scheme
+" invisibles contrast = low
 let g:solarized_visibility="low"
 syntax enable
 set background=light
