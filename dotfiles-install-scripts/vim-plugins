@@ -19,5 +19,7 @@ plugin 'git://github.com/tpope/vim-commentary.git'
 plugin 'Command-T', 'git://git.wincent.com/command-t.git' do |dir|
   `cd "#{dir}" && bundle install && rake make`
 end
-
+plugin 'git://github.com/mileszs/ack.vim.git' do
+  `which brew && brew install ack`
+end
 plugin 'actionscript.vim', 'git://github.com/vim-scripts/actionscript.vim--Leider.git'
