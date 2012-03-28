@@ -90,7 +90,7 @@ set background=light
 colorscheme solarized
 
 " speed up switching between last two windows
-nnoremap <leader><leader> <c-^>
+map <leader>` <c-^>
 
 " Rails stuff (from @garybernhardt)
 function! RunTests(filename)
