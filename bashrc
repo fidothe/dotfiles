@@ -34,5 +34,7 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
 
-[[ -s "/Users/matt/.rvm/scripts/rvm" ]] && source "/Users/matt/.rvm/scripts/rvm"  # This loads RVM into a shell session.
-
+if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
+  source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+  export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+fi
