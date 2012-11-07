@@ -3,3 +3,9 @@
 [user]
 	name = Matt Patterson
 	email = matt@reprocessed.org
+[mergetool]
+	keepBackup = true
+[color]
+	ui = true
+[core]
+	whitespace = trailing-space,space-before-tab
