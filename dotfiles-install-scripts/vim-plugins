@@ -23,3 +23,5 @@ plugin 'git://github.com/mileszs/ack.vim.git' do
   `which brew && brew install ack`
 end
 plugin 'actionscript.vim', 'git://github.com/vim-scripts/actionscript.vim--Leider.git'
+plugin 'git://github.com/rodjek/vim-puppet.git'
+plugin 'git://github.com/docunext/closetag.vim.git'
