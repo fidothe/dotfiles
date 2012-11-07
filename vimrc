@@ -97,7 +97,7 @@ function! RunTests(filename)
     " Write the file and run tests for the given filename
     :w
     :silent !echo;echo;echo;echo;echo
-    exec ":!bundle exec rspec --tag ~wip " . a:filename
+    exec ":!bundle exec rspec " . a:filename
 endfunction
 
 function! SetTestFile()
