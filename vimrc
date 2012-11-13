@@ -155,3 +155,6 @@ function! ShowRoutes()
   :normal dd
 endfunction
 map <leader>gR :call ShowRoutes()<cr>
+
+" Schema
+map <leader>db :topleft :split db/schema.rb<cr>
