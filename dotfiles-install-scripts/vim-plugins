@@ -13,6 +13,10 @@ def plugin(*args, &block)
   block.call(plugin_dir) if block_given?
 end
 
+def vimball(url)
+  `curl -L #{url} | vim -c 'so % | q' -`
+end
+
 plugin 'git://github.com/tpope/vim-rails.git'
 plugin 'git://github.com/altercation/vim-colors-solarized.git'
 plugin 'git://github.com/tpope/vim-commentary.git'
@@ -24,4 +28,5 @@ plugin 'git://github.com/mileszs/ack.vim.git' do
 end
 plugin 'actionscript.vim', 'git://github.com/vim-scripts/actionscript.vim--Leider.git'
 plugin 'git://github.com/rodjek/vim-puppet.git'
-plugin 'git://github.com/docunext/closetag.vim.git'
+# plugin 'git://github.com/docunext/closetag.vim.git'
+vimball "http://www.vim.org/scripts/download_script.php?src_id=16151"
