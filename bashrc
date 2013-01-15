@@ -34,9 +34,9 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
 
-if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
-  source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
-  export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# Rbenv
+if [ -d "$HOME/.rbenv" ]; then
+  eval "$(rbenv init -)"
 fi
 
 ### Added by the Heroku Toolbelt
