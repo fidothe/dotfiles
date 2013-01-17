@@ -1,16 +1,23 @@
 #!/usr/bin/env ruby
 HOME_DIR = ARGV[0]
 
-def plugin(*args, &block)
+def install!(args, base_dirname, block)
   url = args.pop
   name = args.first || File.basename(url, '.git')
   vimdir = File.expand_path('.vim', HOME_DIR)
-  pathogen_bundle_dir = File.expand_path('bundle', vimdir)
-  plugin_dir = File.expand_path(name, pathogen_bundle_dir)
+  base_dir = File.expand_path(base_dirname, vimdir)
+  install_dir = File.expand_path(name, base_dir)
+  `mkdir -p #{base_dir}`
+  `rm -rf "#{install_dir}" && git clone "#{url}" "#{install_dir}"`
+  block.call(install_dir) if block
+end
 
-  `mkdir -p #{pathogen_bundle_dir}`
-  `rm -rf "#{plugin_dir}" && git clone "#{url}" "#{plugin_dir}"`
-  block.call(plugin_dir) if block_given?
+def plugin(*args, &block)
+  install!(args, 'bundle', block)
+end
+
+def script(*args, &block)
+  install!(args, 'scripts', block)
 end
 
 plugin 'git://github.com/tpope/vim-rails.git'
