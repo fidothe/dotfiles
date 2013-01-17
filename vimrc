@@ -42,6 +42,9 @@ augroup mattCommands
   autocmd FileType python set sw=4 sts=4 et
 
   autocmd! BufRead,BufNewFile *.sass setfiletype sass 
+
+  autocmd Filetype html,xml,xsl let b:closetag_html_style=1
+  autocmd Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim/plugin/closetag.vim
 augroup END
 
 " Directories for swp files
