@@ -31,5 +31,4 @@ plugin 'git://github.com/mileszs/ack.vim.git' do
 end
 plugin 'actionscript.vim', 'git://github.com/vim-scripts/actionscript.vim--Leider.git'
 plugin 'git://github.com/rodjek/vim-puppet.git'
-script 'git://github.com/docunext/closetag.vim.git'
 plugin 'git://github.com/othree/html5.vim.git'
