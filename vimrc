@@ -1,4 +1,5 @@
-call pathogen#infect()
+set nocompatible
+execute pathogen#infect()
 " line numbers
 set number
 set ruler
