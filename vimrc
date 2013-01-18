@@ -27,25 +27,25 @@ augroup mattCommands
 
   " Filetypes
   " Use .as for ActionScript files, not Atlas files.
-  au BufNewFile,BufRead *.as set filetype=actionscript
+  autocmd BufNewFile,BufRead *.as set filetype=actionscript
 
   " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
-  au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
+  autocmd BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
 
   " md, markdown, and mk are markdown and define buffer-local preview
-  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
+  autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
 
   " add json syntax highlighting
-  au BufNewFile,BufRead *.json set ft=javascript
+  autocmd BufNewFile,BufRead *.json set ft=javascript
   
   "for ruby, autoindent with two spaces, always expand tabs
   autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set ai sw=2 sts=2 et
-  autocmd FileType python set sw=4 sts=4 et
+  "for python, autoindent with four spaces, always expand tabs
+  autocmd FileType python set ai sw=4 sts=4 et
 
-  autocmd! BufRead,BufNewFile *.sass setfiletype sass 
+  " Old-school SASS
+  autocmd! BufRead,BufNewFile *.sass set ft=sass
 
-  autocmd Filetype html,xml,xsl let b:closetag_html_style=1
-  autocmd Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim/plugin/closetag.vim
 augroup END
 
 " Directories for swp files
