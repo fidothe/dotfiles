@@ -46,6 +46,8 @@ augroup mattCommands
   " Old-school SASS
   autocmd! BufRead,BufNewFile *.sass set ft=sass
 
+  " Buster.js spec files
+  autocmd BufRead,BufNewFile *_spec.js set ft=buster.javascript
 augroup END
 
 " Directories for swp files
