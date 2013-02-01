@@ -101,17 +101,28 @@ colorscheme solarized
 " speed up switching between last two windows
 map <leader>` <c-^>
 
-" Rails stuff (from @garybernhardt)
+" TDD stuff (adapted from @garybernhardt)
 function! RunTests(filename)
     " Write the file and run tests for the given filename
     :w
     :silent !echo;echo;echo;echo;echo
-    exec ":!bundle exec rspec " . a:filename
+    if &filetype =~ "ruby"
+        exec ":!bundle exec rspec " . a:filename
+    elseif &filetype =~ "javascript"
+        exec ":!buster test -t " . a:filename
+    endif
 endfunction
 
 function! SetTestFile()
     " Set the spec file that tests will be run for.
     let t:grb_test_file=@%
+endfunction
+
+function! CheckTestFile(file_suffix)
+    let in_spec_file = match(expand("%"), a:file_suffix . '$') != -1
+    if in_spec_file
+        call SetTestFile()
+    end
 endfunction
 
 function! RunTestFile(...)
@@ -122,12 +133,16 @@ function! RunTestFile(...)
     endif
 
     " Run the tests for the previously-marked file.
-    let in_spec_file = match(expand("%"), '_spec.rb$') != -1
-    if in_spec_file
-        call SetTestFile()
-    elseif !exists("t:grb_test_file")
+    if &filetype =~ "ruby"
+        call CheckTestFile("_spec.rb")
+    elseif &filetype =~ "javascript"
+        call CheckTestFile("_spec.js")
+    endif
+
+    if !exists("t:grb_test_file")
         return
-    end
+    endif
+
     call RunTests(t:grb_test_file . command_suffix)
 endfunction
 
