@@ -4,3 +4,5 @@ cucumber=.feature
 haml=.haml
 --type-set
 puppet=.pp
+--type-set
+sass=.scss,.sass
