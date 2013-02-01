@@ -48,6 +48,9 @@ augroup mattCommands
 
   " Buster.js spec files
   autocmd BufRead,BufNewFile *_spec.js set ft=buster.javascript
+
+  " HTML ERB should be HTML too
+  autocmd! BufRead,BufNewFile *.html.erb set ft=html.eruby
 augroup END
 
 " Directories for swp files
