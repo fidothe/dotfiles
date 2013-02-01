@@ -1,9 +1,23 @@
 snippet des "describe" b!
-describe("${1:thing}", function() {
-  $0
+describe('${1:thing}', function() {
+  $0${VISUAL}
 });
 endsnippet
 
 snippet eth "expect().toThrow" b!
-expect(function() { $1 }).toThrow("$2");
+expect(function() { $1${VISUAL} }).toThrow('$2');
+endsnippet
+
+snippet ee "expect(x).toEqual(y)" b!
+expect($1${VISUAL}).toEqual($2);
+endsnippet
+
+snippet etb "expect(x).toBe(y)" b!
+expect($1${VISUAL}).toBe($2);
+endsnippet
+
+snippet bef "before()" b!
+before(function() {
+  $0${VISUAL}
+});
 endsnippet
