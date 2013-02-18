@@ -1,5 +1,11 @@
 snippet des "describe" b!
-describe('${1:thing}', function() {
+describe("${1:thing}", function() {
+  $0${VISUAL}
+});
+endsnippet
+
+snippet it "it" b!
+it("${1:should}", function() {
   $0${VISUAL}
 });
 endsnippet
