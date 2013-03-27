@@ -32,6 +32,10 @@ augroup mattCommands
   " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
   autocmd BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
 
+  " RSpec spec files
+  autocmd BufRead,BufNewFile *_spec.rb set ft=rspec.ruby
+
+
   " md, markdown, and mk are markdown and define buffer-local preview
   autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
 
