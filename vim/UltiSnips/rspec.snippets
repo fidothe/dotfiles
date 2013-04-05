@@ -4,6 +4,12 @@ describe "${1:thing}" do
 end
 endsnippet
 
+snippet dest "describe Type" b!
+describe ${1:Thing} do
+  $0${VISUAL}
+end
+endsnippet
+
 snippet it "it" b!
 it "${1:can}" do
   $0${VISUAL}
