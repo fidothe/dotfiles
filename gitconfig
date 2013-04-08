@@ -9,5 +9,6 @@
 	ui = true
 [core]
 	whitespace = trailing-space,space-before-tab
+	excludesfile = /Users/matt/.gitignore_global
 [push]
 	default = simple
