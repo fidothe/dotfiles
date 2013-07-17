@@ -2,8 +2,9 @@
 source ~/.zsh/exports.zsh
 source ~/.zsh/options.zsh
 
-# change the prompt
+# core UX
 source ~/.zsh/prompt.zsh
+source ~/.zsh/completion.zsh
 
 # more advanced env setup
 source ~/.zsh/rbenv.zsh
