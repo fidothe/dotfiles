@@ -186,3 +186,6 @@ map <leader>gR :call ShowRoutes()<cr>
 
 " Schema
 map <leader>db :topleft :split db/schema.rb<cr>
+
+" Strip all trailing whitespace
+map <leader>ts :%s/\s\+$<cr>
