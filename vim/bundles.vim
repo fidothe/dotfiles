@@ -11,15 +11,16 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 "
 " original repos on github
-Bundle 'tpope/vim-rails.git'
-Bundle 'altercation/vim-colors-solarized.git'
-Bundle 'tpope/vim-commentary.git'
-Bundle 'vim-scripts/actionscript.vim--Leider.git'
-Bundle 'rodjek/vim-puppet.git'
-Bundle 'othree/html5.vim.git'
-Bundle 'kchmck/vim-coffee-script.git'
-Bundle 'SirVer/ultisnips.git'
-Bundle 'mileszs/ack.vim.git'
+Bundle 'tpope/vim-rails'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'tpope/vim-commentary'
+Bundle 'vim-scripts/actionscript.vim--Leider'
+Bundle 'rodjek/vim-puppet'
+Bundle 'othree/html5.vim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'SirVer/ultisnips'
+Bundle 'mileszs/ack.vim'
+Bundle 'slim-template/vim-slim'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " vim-scripts repos
 " Bundle 'L9'
