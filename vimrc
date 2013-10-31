@@ -1,12 +1,11 @@
-set nocompatible
-execute pathogen#infect()
+" load Vundle config
+source $HOME/.vim/bundles.vim
+
 " line numbers
 set number
 set ruler
 " syntax highlighting
 syntax on
-" Also load indent files, to automatically do language-dependent indenting.
-filetype plugin indent on
 
 " Tabses and such
 set tabstop=2                     " a tab is two spaces

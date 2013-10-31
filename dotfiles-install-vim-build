@@ -1,0 +1,11 @@
+#!/bin/sh
+
+BUNDLE_DIR=$HOME/.vim/bundle
+
+if [ -d $BUNDLE_DIR/command-t ]; then
+  cd $BUNDLE_DIR/command-t/ruby/command-t && RBENV_VERSION=system ruby extconf.rb && make
+fi
+
+if [ -d $BUNDLE_DIR/ack ]; then
+  which brew && brew install ack
+fi
