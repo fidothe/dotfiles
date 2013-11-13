@@ -1,3 +1,6 @@
+" load Pathogen for the oddly-supplied Go plugins
+execute pathogen#infect('pathogen_style/{}')
+
 " load Vundle config
 source $HOME/.vim/bundles.vim
 

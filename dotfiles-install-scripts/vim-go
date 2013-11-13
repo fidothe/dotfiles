@@ -1,0 +1,8 @@
+#!/bin/bash
+
+gopath=`brew --prefix go`/libexec/misc/vim
+vimpath=$HOME/.vim/pathogen_style
+if [ -d $gopath ]; then
+  mkdir -p $vimpath 
+  ln -sf $gopath $vimpath/go
+fi
