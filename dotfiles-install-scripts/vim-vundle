@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 HOME_DIR = ARGV[0]
 
-vundle_url = "git clone https://github.com/gmarik/vundle.git"
+vundle_url = "https://github.com/gmarik/vundle.git"
 vimdir = File.expand_path('.vim', HOME_DIR)
 bundle_dir = File.expand_path('bundle', vimdir)
 install_dir = File.expand_path('vundle', bundle_dir)
