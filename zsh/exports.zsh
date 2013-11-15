@@ -6,4 +6,4 @@ export PATH="/usr/local/share/python:/usr/local/share/npm/bin:/usr/local/bin:${P
 export NODE_PATH="/usr/local/lib/node_modules:${NODE_PATH}"
 export CLICOLOR=1
 export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
-export GOPATH=/Users/matt/Documents/work/current/go
+export GOPATH=${HOME}/Documents/work/current/go
