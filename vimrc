@@ -57,6 +57,9 @@ augroup mattCommands
 
   " HTML ERB should be HTML too
   autocmd! BufRead,BufNewFile *.html.erb set ft=eruby.html
+
+  "for Go, always use tabs
+  autocmd FileType go set ai noet
 augroup END
 
 " Directories for swp files
