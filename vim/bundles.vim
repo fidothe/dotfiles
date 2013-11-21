@@ -21,6 +21,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'SirVer/ultisnips'
 Bundle 'mileszs/ack.vim'
 Bundle 'slim-template/vim-slim'
+Bundle 'tpope/vim-fugitive'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " vim-scripts repos
 " Bundle 'L9'
