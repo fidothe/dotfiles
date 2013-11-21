@@ -1,5 +1,5 @@
 # basic setup
-source ~/.zsh/exports.zsh
+source ~/.sh-common/exports.sh
 source ~/.zsh/options.zsh
 
 # core UX
@@ -7,6 +7,7 @@ source ~/.zsh/prompt.zsh
 source ~/.zsh/completion.zsh
 
 # more advanced env setup
-source ~/.zsh/rbenv.zsh
-source ~/.zsh/virtualenv.zsh
-source ~/.zsh/heroku.zsh
+source ~/.sh-common/exports.sh
+source ~/.sh-common/rbenv.sh
+source ~/.sh-common/virtualenv.sh
+source ~/.sh-common/heroku.sh
