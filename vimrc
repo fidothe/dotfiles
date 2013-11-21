@@ -102,7 +102,9 @@ set winheight=999
 
 " Solarized colour scheme
 " invisibles contrast = low
-let g:solarized_visibility="low"
+" let g:solarized_visibility="low"
+" diffmode colours
+let g:solarized_diffmode="high"
 syntax enable
 set background=light
 colorscheme solarized
