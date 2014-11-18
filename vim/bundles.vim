@@ -21,7 +21,10 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'SirVer/ultisnips'
 Bundle 'mileszs/ack.vim'
 Bundle 'slim-template/vim-slim'
+Bundle 'rking/ag.vim'
 Bundle 'tpope/vim-fugitive'
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " vim-scripts repos
 " Bundle 'L9'
