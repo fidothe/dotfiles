@@ -1,2 +1,4 @@
 # .DS_Store, we hates them
 .DS_Store
+# per-project silver searcher ignore file, probably too specific to commit
+.agignore
