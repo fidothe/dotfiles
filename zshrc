@@ -19,3 +19,6 @@ if [ -d ~/.sh-extras ]; then
     source $extra
   done
 fi
+
+# travis CI
+source ~/.sh-common/travis.sh
