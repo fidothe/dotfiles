@@ -1,8 +1,11 @@
 #!/bin/bash
 
-gopath=`brew --prefix go`/libexec/misc/vim
-vimpath=$HOME/.vim/pathogen_style
-if [ -d $gopath ]; then
-  mkdir -p $vimpath 
-  ln -sf $gopath $vimpath/go
+# leave this homebrew / mac only for now
+if which brew; then
+  gopath=`brew --prefix go`/libexec/misc/vim
+  vimpath=$HOME/.vim/pathogen_style
+  if [ -d $gopath ]; then
+    mkdir -p $vimpath 
+    ln -sf $gopath $vimpath/go
+  fi
 fi
