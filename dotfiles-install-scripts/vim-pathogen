@@ -3,6 +3,6 @@
 vimpath=$HOME/.vim/autoload
 mkdir -p $vimpath 
 if [ ! -f $vimpath/pathogen.vim ]; then
-  curl -Sso $vimpath/pathogen.vim \
-      https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+  curl -LSso $vimpath/pathogen.vim \
+    https://tpo.pe/pathogen.vim
 fi
