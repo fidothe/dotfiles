@@ -1,7 +1,7 @@
 common_shell_includes=$HOME/.sh-common
 source $common_shell_includes/exports.sh
 
-if [ -f `brew --prefix`/etc/bash_completion ]; then
+if which brew && [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
 
