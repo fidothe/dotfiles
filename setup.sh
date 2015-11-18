@@ -14,3 +14,6 @@ fi
 
 # vim setup - initial plugin install
 vim -u ${HOME}/.vim/bundles.vim +PluginInstall +qall
+
+# git setup
+git config --global core.excludesfile ${HOME}/.gitignore_global
