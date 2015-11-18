@@ -45,7 +45,7 @@ augroup mattCommands
 
   " add json syntax highlighting
   autocmd BufNewFile,BufRead *.json set ft=javascript
-  
+
   "for ruby, autoindent with two spaces, always expand tabs
   autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set ai sw=2 sts=2 et
   "for python, autoindent with four spaces, always expand tabs

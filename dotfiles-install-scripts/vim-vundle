@@ -1,11 +1,13 @@
 #!/usr/bin/env ruby
-HOME_DIR = ARGV[0]
+require 'pathname'
 
-vundle_url = "https://github.com/gmarik/vundle.git"
-vimdir = File.expand_path('.vim', HOME_DIR)
-bundle_dir = File.expand_path('bundle', vimdir)
-install_dir = File.expand_path('vundle', bundle_dir)
+HOME_DIR = Pathname.new(ARGV[0])
+
+vundle_url = "https://github.com/VundleVim/Vundle.vim.git"
+vimdir = HOME_DIR.join('.vim')
+bundle_dir = vimdir.join('bundle')
+install_dir = bundle_dir.join('Vundle.vim')
 `mkdir -p #{bundle_dir}`
-# vundle manages updating itself, so we just need to make sure 
+# vundle manages updating itself, so we just need to make sure
 # that it's there or that we installed it
-`git clone "#{vundle_url}" "#{install_dir}"` unless File.directory?(install_dir)
+`git clone "#{vundle_url}" "#{install_dir}"` unless install_dir.directory?
