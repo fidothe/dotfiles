@@ -114,6 +114,16 @@ colorscheme solarized
 " speed up switching between last two windows
 map <leader>` <c-^>
 
+" Promote variable to RSpec let (nicked from Gary Bernhardt)
+function! PromoteToLet()
+  :normal! dd
+  :normal! P
+  :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
+  :normal ==
+endfunction
+:command! PromoteToLet :call PromoteToLet()
+:map <leader>p :PromoteToLet<cr>
+
 " TDD stuff (adapted from @garybernhardt)
 function! RunTests(filename)
     " Write the file and run tests for the given filename

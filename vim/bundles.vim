@@ -28,6 +28,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'kien/ctrlp.vim'
+Bundle 'rust-lang/rust.vim'
 "
 " The following are examples of different formats supported.
 " plugin on GitHub repo

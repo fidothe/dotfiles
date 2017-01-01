@@ -10,4 +10,4 @@ if [ -f /usr/local/opt/curl-ca-bundle/share/ca-bundle.crt ]; then
 fi
 export GOPATH=${HOME}/Documents/work/go
 export ANDROID_TOOLS_PATH=${HOME}/Library/Android/sdk/platform-tools
-export PATH="${GOPATH}/bin:${ANDROID_TOOLS_PATH}:/usr/local/share/npm/bin:/usr/local/bin:${PATH}"
+export PATH="${GOPATH}/bin:${ANDROID_TOOLS_PATH}:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/sbin:${PATH}"

@@ -12,6 +12,11 @@ if which apt-get; then
   sudo chsh -s /usr/bin/zsh `whoami`
 fi
 
+# Silver Searcher
+if which apt-get; then
+  sudo apt-get install -y silversearcher-ag
+fi
+
 # vim setup - initial plugin install
 vim -u ${HOME}/.vim/bundles.vim +PluginInstall +qall
 

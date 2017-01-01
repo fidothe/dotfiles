@@ -7,8 +7,7 @@ source ~/.zsh/prompt.zsh
 source ~/.zsh/completion.zsh
 
 # more advanced env setup
-source ~/.sh-common/exports.sh
-source ~/.sh-common/rbenv.sh
+source ~/.sh-common/chruby.sh
 source ~/.sh-common/virtualenv.sh
 source ~/.sh-common/heroku.sh
 source ~/.sh-common/aliases.sh
@@ -22,3 +21,8 @@ fi
 
 # travis CI
 source ~/.sh-common/travis.sh
+
+# iTerm2 shell integration
+if [ -f ~/.iterm2_shell_integration.zsh ]; then
+  source ~/.iterm2_shell_integration.zsh
+fi
