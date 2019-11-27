@@ -174,6 +174,9 @@ function! RunNearestTest()
     call RunTestFile(":" . spec_line_number)
 endfunction
 
+" Make ruby-vim indent the way I like
+let g:ruby_indent_assignment_style = 'variable'
+
 " Run this file
 map <leader>t :call RunTestFile()<cr>
 " Run only the example under the cursor

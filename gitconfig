@@ -8,6 +8,7 @@
 [core]
 	whitespace = trailing-space,space-before-tab
 	excludesfile = /Users/matt/.gitignore_global
+	autocrlf = input
 [push]
 	default = current
 [alias]
@@ -26,3 +27,10 @@
 	ra = !git r --all
 	l = "!. ~/.githelpers && pretty_git_log"
 	la = !git l --all
+[credential]
+	helper = osxkeychain
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

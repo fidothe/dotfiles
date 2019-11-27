@@ -11,6 +11,7 @@ source ~/.sh-common/chruby.sh
 source ~/.sh-common/virtualenv.sh
 source ~/.sh-common/heroku.sh
 source ~/.sh-common/aliases.sh
+source ~/.sh-common/ssh-agent.sh
 
 # stuff we don't want to commit
 if [ -d ~/.sh-extras ]; then

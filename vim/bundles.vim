@@ -16,6 +16,7 @@ Plugin 'VundleVim/Vundle.vim'
 Bundle 'tpope/vim-rails'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-commentary'
+Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/actionscript.vim--Leider'
 Bundle 'rodjek/vim-puppet'
 Bundle 'othree/html5.vim'
@@ -29,6 +30,7 @@ Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'kien/ctrlp.vim'
 Bundle 'rust-lang/rust.vim'
+Bundle 'gregjurman/vim-nc'
 "
 " The following are examples of different formats supported.
 " plugin on GitHub repo
