@@ -16,6 +16,7 @@ source ~/.zsh/completion.zsh
 
 # more advanced env setup
 source ~/.sh-common/chruby.sh
+source ~/.sh-common/nvm.sh
 source ~/.sh-common/virtualenv.sh
 source ~/.sh-common/heroku.sh
 source ~/.sh-common/aliases.sh
