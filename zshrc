@@ -1,3 +1,11 @@
+# enable completions from brew
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
 # basic setup
 source ~/.sh-common/exports.sh
 source ~/.zsh/options.zsh
