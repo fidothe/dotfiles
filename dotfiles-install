@@ -1,26 +1,50 @@
 #!/usr/bin/env ruby
-dotfiles_dir = File.expand_path(File.dirname(__FILE__))
+require 'pathname'
+
+dotfiles_dir = Pathname.new(__dir__).expand_path
 initial_root = ENV['HOME']
-install_scripts_dir = File.expand_path('dotfiles-install-scripts', dotfiles_dir)
+install_scripts_dir = dotfiles_dir/'dotfiles-install-scripts'
+
+exclude_file = dotfiles_dir/'exclude.txt'
+EXCLUDE_LIST = exclude_file.open('r').each_line.map { |l|
+  l.strip
+}.reject { |l| l == '' } + [
+  'exclude.txt', 'dotfiles-install', 'dotfiles-install-scripts'
+]
 
 def run_scripts(dir, root)
-  Dir["#{dir}/*"].select { |path| File.executable?(path) }.each do |script|
-    puts "running #{File.basename(script)}"
+  dir.children.select { |path| path.executable? }.each do |script|
+    puts "running #{script.basename}"
     `"#{script}" "#{root}"`
   end
 end
 
 def process_dir(dir, root, path_prefix = ".")
-  Dir["#{dir}/*"].reject {|path| path =~ /dotfiles-install/}.each do |dotfile_path|
-    if File.file?(dotfile_path)
-      puts `ln -svf #{dotfile_path} #{root}/#{path_prefix}#{File.basename(dotfile_path)}`
-    elsif File.directory?(dotfile_path)
-      dir_path = "#{root}/#{path_prefix}#{File.basename(dotfile_path)}"
+  dir.children.reject { |path|
+    path.basename.to_s.match(/^\./) || EXCLUDE_LIST.include?(path.basename.to_s)
+  }.each do |dotfile_path|
+    if dotfile_path.file?
+      puts `ln -svf #{dotfile_path} #{root}/#{path_prefix}#{dotfile_path.basename}`
+    elsif dotfile_path.directory?
+      dir_path = "#{root}/#{path_prefix}#{dotfile_path.basename}"
       puts `mkdir -pv #{dir_path}`
       process_dir(dotfile_path, dir_path, '')
     end
   end
 end
 
+def symlink_dirs(dir, initial_root)
+  ['git-template'].map { |name|
+    dir.join(name)
+  }.each do |dir_to_link|
+    symlink_dir(dir_to_link, initial_root)
+  end
+end
+
+def symlink_dir(dir, root, path_prefix = '.')
+  puts `ln -svhf #{dir} #{root}/#{path_prefix}#{dir.basename}`
+end
+
 process_dir(dotfiles_dir, initial_root)
+symlink_dirs(dotfiles_dir, initial_root)
 run_scripts(install_scripts_dir, initial_root)

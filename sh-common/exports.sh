@@ -1,6 +1,6 @@
 export LC_CTYPE=en_GB.UTF-8
 export EDITOR=nvim
-export GIT_EDITOR="nvim -f"
+export GIT_EDITOR="code --wait"
 export BUNDLER_EDITOR=nvim
 export NODE_PATH="/usr/local/lib/node_modules:${NODE_PATH}"
 export CLICOLOR=1

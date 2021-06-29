@@ -9,6 +9,7 @@
 	whitespace = trailing-space,space-before-tab
 	excludesfile = /Users/matt/.gitignore_global
 	autocrlf = input
+	editor = code --wait
 [push]
 	default = current
 [alias]
@@ -34,3 +35,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[init]
+	templateDir = /Users/matt/.git-template/
