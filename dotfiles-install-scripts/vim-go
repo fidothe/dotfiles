@@ -1,11 +1,12 @@
 #!/bin/bash
 
+source "$(dirname $0)/../sh-common/brew-helpers.sh"
 # leave this homebrew / mac only for now
-if which brew; then
-  gopath=`brew --prefix go`/libexec/misc/vim
+if brew_up; then
+  gopath="$(brew_path --prefix go)/libexec/misc/vim"
   vimpath=$HOME/.vim/pathogen_style
   if [ -d $gopath ]; then
-    mkdir -p $vimpath 
+    mkdir -p $vimpath
     ln -sf $gopath $vimpath/go
   fi
 fi

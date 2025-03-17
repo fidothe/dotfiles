@@ -1,17 +1,4 @@
-# totally stolen from Sven :-) https://github.com/svenfuchs/dotfiles/blob/master/.zsh/lib/prompt.zsh
+source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 
-setopt prompt_subst
-autoload -Uz vcs_info
-
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' formats       ' [%b%c%u]'
-zstyle ':vcs_info:git:*' actionformats ' [%b%c%u | %a}'
-zstyle ':vcs_info:git:*' unstagedstr   "%{$fg[red]%}⚡%{$reset_color%}"
-zstyle ':vcs_info:git:*' stagedstr     "%{$fg[yellow]%}+%{$reset_color%}"
-zstyle ':vcs_info:*' nvcsformats ''
-
-# precmd is called just before the prompt is printed
-function precmd() { vcs_info }
-
-PS1='%1~${vcs_info_msg_0_} $ '
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

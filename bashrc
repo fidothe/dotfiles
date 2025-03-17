@@ -1,11 +1,11 @@
 common_shell_includes=$HOME/.sh-common
+source $common_shell_includes/brew-helpers.sh
 source $common_shell_includes/exports.sh
 
-if which brew && [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
+if brew_up && [ -f "$(brew_prefix)/etc/bash_completion" ]; then
+  . "$(brew_prefix)/etc/bash_completion"
 fi
 
-source $common_shell_includes/ec2.sh
 source $common_shell_includes/virtualenv.sh
 source $common_shell_includes/chruby.sh
 source $common_shell_includes/heroku.sh

@@ -1,13 +1,13 @@
-[user]
-	name = Matt Patterson
-	email = matt@reprocessed.org
+[include]
+	path = ~/.gitconfig.local
 [mergetool]
 	keepBackup = true
+	prompt = false
 [color]
 	ui = true
 [core]
 	whitespace = trailing-space,space-before-tab
-	excludesfile = /Users/matt/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	autocrlf = input
 	editor = code --wait
 [push]
@@ -28,12 +28,11 @@
 	ra = !git r --all
 	l = "!. ~/.githelpers && pretty_git_log"
 	la = !git l --all
-[credential]
-	helper = osxkeychain
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
 [init]
-	templateDir = /Users/matt/.git-template/
+	templateDir = ~/.git-template/
+	defaultBranch = main
